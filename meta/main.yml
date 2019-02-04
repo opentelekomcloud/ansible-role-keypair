@@ -1,0 +1,31 @@
+galaxy_info:
+  role_name: otc_keypair
+  author: Artem Goncharov
+  description: Manage OTC KeyPair
+  company: OpenTelekomCloud
+
+  license: license (Apache)
+
+  min_ansible_version: 2.5
+
+  platforms:
+   - name: EL
+     versions:
+      - all
+   - name: Fedora
+     versions:
+      - all
+   - name: Ubuntu
+     versions:
+      - all
+   - name: Debian
+     versions:
+      - all
+  galaxy_tags:
+    - system
+    - cloud
+    - openstack
+    - otc
+    - keypair
+
+dependencies: []

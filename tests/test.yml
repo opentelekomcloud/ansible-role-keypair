@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  roles:
+    - otc_keypair
+
+- hosts: localhost
+  roles:
+    - { role: otc_keypair, state: 'absent', force_delete_key: True}

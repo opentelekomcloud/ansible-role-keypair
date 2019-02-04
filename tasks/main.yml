@@ -1,0 +1,32 @@
+---
+# tasks file for ansible-role-otc-keypair
+- block:
+  - name: Create KeyPair
+    os_keypair:
+      state: present
+      name: "{{ keypair_name }}"
+    register: keypair_output
+
+  - name: Save private key
+    copy:
+      dest: "{{ keypair_private_key_dest }}"
+      content: "{{ keypair_output['key']['private_key'] }}"
+      mode: 0600
+    when:
+      - keypair_output is defined and keypair_output['key']['private_key'] is defined
+      - keypair_output.changed
+  when: state != 'absent'
+
+- block:
+  - name: Delete KeyPair
+    os_keypair:
+      state: absent
+      name: "{{ keypair_name }}"
+
+  - name: delete private key
+    file:
+      path: "{{ keypair_private_key_dest }}"
+      state: absent
+    when: force_delete_key
+
+  when: state == 'absent'

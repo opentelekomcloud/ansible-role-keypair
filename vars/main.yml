@@ -1,0 +1,11 @@
+---
+# vars file for ansible-role-otc-keypair
+
+# Use prefix for resource naming (when using default naming constructions)
+# infra_prefix: test-
+
+# Keypair name
+# keypair_name: "{{ (infra_prefix + 'KeyPair') }}"
+
+# Location for the private key to be stored to
+# keypair_private_key_dest: "{{ '~/.ssh/keypair.pem' }}"
