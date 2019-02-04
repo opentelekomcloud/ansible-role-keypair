@@ -40,13 +40,13 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: localhost
       roles:
-         - otc-keypair
+         - otc_keypair
 
 Cleanup of the keypair is as easy, as it's creation. For that a variable 'state': 'false' should be passed:
 
     - hosts: localhost
       roles:
-        - { role: otc-keypair, state: 'absent'}
+        - { role: otc_keypair, state: 'absent'}
 
 If a private key should be also deleted, a variable `force_delete_key` should be set.
 
