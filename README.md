@@ -12,20 +12,21 @@ Role Variables
 --------------
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
-  # Prefix for the resources
-  # prefix: test-
 
-  # Keypair name
-  # keypair_name: "{{ (prefix + 'KeyPair') }}"
-
-  # Location for the private key to be stored to
-  # keypair_private_key_dest: "{{ '~/.ssh/keypair.pem' }}"
-
-  # set this to force key deletion
-  force_delete_key: false
-
-  # State (`present` for creation, `absent` for deletion)
-  state: present
+    # Prefix for the resources
+    # prefix: test-
+    
+    # Keypair name
+    # keypair_name: "{{ (prefix + 'KeyPair') }}"
+    
+    # Location for the private key to be stored to
+    # keypair_private_key_dest: "{{ '~/.ssh/keypair.pem' }}"
+    
+    # set this to force key deletion
+    force_delete_key: false
+    
+    # State (`present` for creation, `absent` for deletion)
+    state: present
 
 
 Dependencies
