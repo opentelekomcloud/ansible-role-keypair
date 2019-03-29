@@ -47,7 +47,7 @@ Including an example of how to use the role by using a parameter to change the d
 
     - hosts: localhost
       roles:
-        - { role: opentelekomcloud.keypair, prefix: 'production-' }
+        - { role: opentelekomcloud.keypair, keypair_name: 'My_beautiful_key' }
 
 
 Cleanup of the keypair is as easy, as it's creation. For that a variable `state: 'false'` should be passed:
