@@ -1,7 +1,7 @@
 OpenTelekomCloud Keypair role
 =============================
 
-A quick role to create KeyPair in OTC and save private key locally.
+An Ansible role to create a KeyPair and add the public key to Open Telekom Cloud Key Pair store and save the private key locally under the name `<prefix>KeyPair.pem`.
 
 Requirements
 ------------
@@ -32,24 +32,36 @@ Available variables are listed below, along with default values (see `defaults/m
 Dependencies
 ------------
 
-None.
+Available connection to Open Telekom Cloud via OpenstackSDK's clouds.yaml file or existing Openstack environment variables.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Including a simple example of how to use the role out of the box:
 
     - hosts: localhost
       roles:
-         - otc_keypair
+         - opentelekomcloud.keypair
 
-Cleanup of the keypair is as easy, as it's creation. For that a variable 'state': 'false' should be passed:
+Including an example of how to use the role by using a parameter to change the default prefix for the public key name:
 
     - hosts: localhost
       roles:
-        - { role: otc_keypair, state: 'absent'}
+        - { role: opentelekomcloud.keypair, keypair_name: 'My_beautiful_key' }
 
-If a private key should be also deleted, a variable `force_delete_key` should be set.
+
+Cleanup of the keypair is as easy, as it's creation. For that a variable `state: 'false'` should be passed:
+
+    - hosts: localhost
+      roles:
+        - { role: opentelekomcloud.keypair, state: 'absent' }
+
+If a private key should be also deleted, a variable `force_delete_key: 'true'` should be set.
+
+    - hosts: localhost
+      roles:
+        - { role: opentelekomcloud.keypair, state: 'absent', force_delete_key: 'true' }
+
 
 License
 -------
