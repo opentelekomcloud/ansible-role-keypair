@@ -27,6 +27,6 @@
     file:
       path: "{{ keypair_private_key_dest }}"
       state: absent
-    when: force_delete_key
+    when: force_delete_key|bool
 
   when: state == 'absent'
